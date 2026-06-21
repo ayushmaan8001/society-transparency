@@ -47,4 +47,4 @@ publicly. Full audit trail visible to all residents.
 🚧 Active Development
 
 ## API Documentation
-Run locally and visit http://localhost:8000/docs
+Run locally and visit http://localhost:8000/docsk
