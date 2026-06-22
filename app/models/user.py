@@ -1,5 +1,4 @@
 from sqlalchemy import Column, Integer, String, Boolean, Enum, ForeignKey
-from sqlalchemy.orm import relationship
 import enum
 
 from app.db.base import Base, TimestampMixin
@@ -22,6 +21,14 @@ class User(Base, TimestampMixin):
     password_hash = Column(String, nullable=False)
     phone_number = Column(String, nullable=True)
     role = Column(Enum(UserRole), nullable=False)
-    society_id = Column(Integer, ForeignKey("societies.id"), nullable=True)
-    flat_id = Column(Integer, ForeignKey("flats.id"), nullable=True)
+    society_id = Column(
+        Integer,
+        ForeignKey("societies.id", use_alter=True, name="fk_user_society_id"),
+        nullable=True,
+    )
+    flat_id = Column(
+        Integer,
+        ForeignKey("flats.id", use_alter=True, name="fk_user_flat_id"),
+        nullable=True,
+    )
     is_active = Column(Boolean, default=True)
