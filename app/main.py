@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPBearer
 
-from app.api.v1.endpoints import auth
+from app.api.v1.endpoints import auth, societies
+
+security = HTTPBearer()
 
 app = FastAPI(
     title="Society Transparency Management System",
@@ -18,6 +21,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
+app.include_router(societies.router, prefix="/api/v1/societies", tags=["Societies"])
 
 
 @app.get("/")
