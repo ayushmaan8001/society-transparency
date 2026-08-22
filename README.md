@@ -1,4 +1,4 @@
-# Society Transparency Management System
+# SocSync
 
 A resident-first backend platform for transparent housing society 
 management. Built to solve the real problem of maintenance fund 
